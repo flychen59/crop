@@ -1,0 +1,18 @@
+from PIL import Image
+import os
+
+
+
+
+path='/home/flychen59/MUNIT/datasets/cityscapes/train/'
+path2='/home/flychen59/MUNIT/datasets/cityscapes/trainA/'
+path3='/home/flychen59/MUNIT/datasets/cityscapes/trainB/'
+for i in os.listdir(path):
+    print(i)
+    img = Image.open(path+i)
+    img_crop=img.crop((0,0,256,256))
+    img_crop2 = img.crop((256, 0, 512, 256))
+    cut_name1=path2+i
+    cut_name2=path3+i
+    img_crop.save(cut_name1)
+    img_crop2.save(cut_name2)
